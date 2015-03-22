@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="HearMeNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,10 +16,75 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hear Me Now..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-Yx-hNw">
+                                <rect key="frame" x="16" y="20" width="568" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3l-ZJ-zDu">
+                                <rect key="frame" x="16" y="67" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E2Q-6S-YKa"/>
+                                </constraints>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ZvV-dW-y9W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAh-EW-Nbo">
+                                <rect key="frame" x="16" y="105" width="568" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xAW-na-Qb0"/>
+                                </constraints>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dJg-dU-Qtw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="gAh-EW-Nbo" secondAttribute="bottom" constant="465" id="CbF-Bk-ZeW"/>
+                            <constraint firstItem="gAh-EW-Nbo" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="DgK-GG-MRU"/>
+                            <constraint firstItem="CNH-Yx-hNw" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="VB0-Tm-y3Z"/>
+                            <constraint firstItem="g3l-ZJ-zDu" firstAttribute="top" secondItem="CNH-Yx-hNw" secondAttribute="bottom" constant="8" symbolic="YES" id="WKl-08-dXI"/>
+                            <constraint firstItem="g3l-ZJ-zDu" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Wc1-zl-PqQ"/>
+                            <constraint firstItem="gAh-EW-Nbo" firstAttribute="trailing" secondItem="g3l-ZJ-zDu" secondAttribute="trailing" id="Wmf-Gx-8Bc"/>
+                            <constraint firstItem="CNH-Yx-hNw" firstAttribute="leading" secondItem="g3l-ZJ-zDu" secondAttribute="leading" id="dN4-yL-XlU"/>
+                            <constraint firstItem="gAh-EW-Nbo" firstAttribute="leading" secondItem="g3l-ZJ-zDu" secondAttribute="leading" id="dzV-lU-PnY"/>
+                            <constraint firstItem="CNH-Yx-hNw" firstAttribute="trailing" secondItem="g3l-ZJ-zDu" secondAttribute="trailing" id="fQY-mM-6ti"/>
+                            <constraint firstItem="gAh-EW-Nbo" firstAttribute="top" secondItem="g3l-ZJ-zDu" secondAttribute="bottom" constant="8" symbolic="YES" id="xbk-Di-yHn"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playButton" destination="gAh-EW-Nbo" id="2LU-1p-L1C"/>
+                        <outlet property="recordButton" destination="g3l-ZJ-zDu" id="9tn-x5-iWH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="B8F-LY-TpX">
+            <objects>
+                <viewController id="yEa-NK-GBj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hn8-VD-bjF"/>
+                        <viewControllerLayoutGuide type="bottom" id="0F5-V8-Ehd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VDc-RL-LZP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GtD-Gc-0hs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
